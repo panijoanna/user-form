@@ -14,5 +14,6 @@ html {
 
 body {
   margin: 0;
+  background: #cb668f;
   font-family: "Montserrat", sans-serif;
 }`;
