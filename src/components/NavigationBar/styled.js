@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const Navigation = styled.nav`
@@ -24,4 +25,8 @@ export const NavigationItem = styled.li`
   &:hover {
     color: #e3b3af;
   }
+`;
+
+export const NavigationLink = styled(NavLink)`
+  text-decoration: none;
 `;

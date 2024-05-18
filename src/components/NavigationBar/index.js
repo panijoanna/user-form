@@ -1,11 +1,20 @@
-import { Navigation, NavigationItem, NavigationList } from "./styled";
+import {
+  Navigation,
+  NavigationItem,
+  NavigationLink,
+  NavigationList,
+} from "./styled";
 
 const NavigationBar = () => {
   return (
     <Navigation>
       <NavigationList>
-        <NavigationItem>create user</NavigationItem>
-        <NavigationItem>show user</NavigationItem>
+        <NavigationItem>
+          <NavigationLink to="/create">create user</NavigationLink>
+        </NavigationItem>
+        <NavigationItem>
+          <NavigationLink to="/show-user">show user</NavigationLink>
+        </NavigationItem>
       </NavigationList>
     </Navigation>
   );
