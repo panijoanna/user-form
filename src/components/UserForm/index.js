@@ -1,4 +1,4 @@
-import NavigationBar from "./NavigationBar";
+import NavigationBar from "../NavigationBar";
 import {
   Heading,
   Section,
@@ -7,14 +7,17 @@ import {
   StyledImg,
   StyledInput,
   Wrapper,
+  Container,
 } from "./styled";
 import image from "../../assets/abstract.jpg";
 
 const UserForm = () => {
   return (
     <>
-      <NavigationBar />
       <Section>
+        <Container>
+          <NavigationBar />
+        </Container>
         <Wrapper>
           <StyledForm>
             <Heading>user form</Heading>
