@@ -2,10 +2,10 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const Navigation = styled.nav`
-  margin-bottom: 3vh;
   padding-top: 10px;
   display: flex;
   justify-content: center;
+  padding: 10px;
 `;
 
 export const NavigationList = styled.ul`

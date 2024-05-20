@@ -13,7 +13,6 @@ html {
 }
 
 body {
-  margin: 0;
-  background: #cb668f;
+  margin: 0 auto;
   font-family: "Montserrat", sans-serif;
 }`;

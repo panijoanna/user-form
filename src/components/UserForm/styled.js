@@ -5,6 +5,8 @@ export const Section = styled.section`
   flex-direction: column;
   align-items: center;
   border-top: 10px solid #e3a24a;
+  background: #cb668f;
+  height: 100vh;
 `;
 
 export const Container = styled.div`
