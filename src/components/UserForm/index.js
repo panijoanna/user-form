@@ -21,9 +21,9 @@ const UserForm = () => {
         <Wrapper>
           <StyledForm>
             <Heading>user form</Heading>
-            <StyledInput placeholder="Name" />
-            <StyledInput placeholder="Email" />
-            <StyledInput placeholder="Phone" />
+            <StyledInput type="text" placeholder="Name" />
+            <StyledInput type="email" placeholder="Email" />
+            <StyledInput type="number" placeholder="Phone" />
             <StyledButton>Submit</StyledButton>
           </StyledForm>
           <StyledImg src={image} alt="abstract picture" />
