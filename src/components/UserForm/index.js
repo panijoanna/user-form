@@ -10,8 +10,20 @@ import {
   Container,
 } from "./styled";
 import image from "../../assets/abstract.jpg";
+import { useState } from "react";
 
 const UserForm = () => {
+  const [formData, setFormData] = useState({ name: "", email: "", number: "" });
+
+  const handleChange = event => {
+    const { name, value } = event.target;
+    setFormData(prevFormData => ({ ...prevFormData, [name]: value }));
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+  };
+
   return (
     <>
       <Section>
@@ -19,12 +31,33 @@ const UserForm = () => {
           <NavigationBar />
         </Container>
         <Wrapper>
-          <StyledForm>
+          <StyledForm onSubmit={handleSubmit}>
             <Heading>user form</Heading>
-            <StyledInput type="text" placeholder="Name" />
-            <StyledInput type="email" placeholder="Email" />
-            <StyledInput type="number" placeholder="Phone" />
-            <StyledButton>Submit</StyledButton>
+            <StyledInput
+              value={formData.name}
+              onChange={handleChange}
+              type="text"
+              placeholder="Name"
+              name="name"
+              id="name"
+            />
+            <StyledInput
+              value={formData.email}
+              onChange={handleChange}
+              type="email"
+              placeholder="Email"
+              name="email"
+              id="email"
+            />
+            <StyledInput
+              value={formData.number}
+              onChange={handleChange}
+              type="number"
+              placeholder="Phone"
+              name="number"
+              id="number"
+            />
+            <StyledButton type="submit">Submit</StyledButton>
           </StyledForm>
           <StyledImg src={image} alt="abstract picture" />
         </Wrapper>
