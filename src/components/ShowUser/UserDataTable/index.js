@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   StyledButton,
   StyledTable,
@@ -7,8 +8,24 @@ import {
   StyledTableHeading,
   StyledTableRow,
 } from "./styled";
+import { useEffect, useState } from "react";
 
 const UserDataTable = () => {
+  const [users, setUsers] = useState([]);
+  const apiKey = process.env.REACT_APP_API_KEY;
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(apiKey);
+        setUsers(response.data);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
+    fetchUserData();
+  }, [apiKey]);
+
   return (
     <StyledTable>
       <StyledTableHead>
@@ -21,13 +38,20 @@ const UserDataTable = () => {
         </StyledTableRow>
       </StyledTableHead>
       <StyledTableBody>
-        <StyledTableRow>
-          <StyledTableDataCell></StyledTableDataCell>
-          <StyledTableDataCell>
-            <StyledButton>edit</StyledButton>
-            <StyledButton secondary>delete</StyledButton>
-          </StyledTableDataCell>
-        </StyledTableRow>
+        {users.map(user => {
+          return (
+            <StyledTableRow key={user.id}>
+              <StyledTableDataCell>{user.id}</StyledTableDataCell>
+              <StyledTableDataCell>{user.name}</StyledTableDataCell>
+              <StyledTableDataCell>{user.email}</StyledTableDataCell>
+              <StyledTableDataCell>{user.number}</StyledTableDataCell>
+              <StyledTableDataCell>
+                <StyledButton>edit</StyledButton>
+                <StyledButton secondary>delete</StyledButton>
+              </StyledTableDataCell>
+            </StyledTableRow>
+          );
+        })}
       </StyledTableBody>
     </StyledTable>
   );
