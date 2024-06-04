@@ -11,9 +11,12 @@ import {
 } from "./styled";
 import image from "../../assets/abstract.jpg";
 import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const UserForm = () => {
   const [formData, setFormData] = useState({ name: "", email: "", number: "" });
+  const navigate = useNavigate();
   const apiKey = process.env.REACT_APP_API_KEY;
 
   const handleChange = event => {
@@ -21,8 +24,15 @@ const UserForm = () => {
     setFormData(prevFormData => ({ ...prevFormData, [name]: value }));
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
+    try {
+      const response = await axios.post(apiKey, formData);
+      console.log(response);
+      navigate("/show-user");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
